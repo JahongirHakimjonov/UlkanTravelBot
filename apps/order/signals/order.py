@@ -15,7 +15,7 @@ def post_save_answer(sender, instance, created, **kwargs):
         try:
             groups = Group.objects.all()
             for group in groups:
-                text = f"Tour:\n{instance.tour}\n\nIsm Familiya:\n{instance.name}\n\nTelefon raqam:\n{instance.phone}\n\nNarxi:\n{instance.email}\n\nSoni:\n{instance.message}"
+                text = f"Tour:\n{instance.tour}\n\nIsm Familiya:\n{instance.name}\n\nTelefon raqam:\n{instance.phone}\n\nNarxi:\n{instance.email}\n\nSoni:\n{instance.message}\n\nMurojaat qilish vaqti:\n{instance.created_at.strftime('%Y-%m-%d %H:%M:%S')}"
                 bot.send_message(
                     group.group_id,
                     text=text,
