@@ -6,7 +6,7 @@ set -o nounset
 
 
 # Apply Django migrations
-python manage.py makemigrations
+#python manage.py makemigrations
 python manage.py migrate
 python manage.py createadmin
 
@@ -14,10 +14,10 @@ python manage.py createadmin
 python manage.py collectstatic --noinput
 
 # Run Gunicorn server with increased timeout
-exec gunicorn core.wsgi:application --bind 0.0.0.0:8000 --timeout 120
+#exec gunicorn core.wsgi:application --bind 0.0.0.0:8000 --timeout 120
 
 # Run Uvicorn server using ASGI
-#exec uvicorn core.asgi:application --host 0.0.0.0 --port 8000 --reload
+exec uvicorn core.asgi:application --host 0.0.0.0 --port 8000 --reload
 
 
 
