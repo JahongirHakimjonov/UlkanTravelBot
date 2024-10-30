@@ -5,6 +5,7 @@ from django.urls import path, include, re_path
 from django.views.static import serve
 
 urlpatterns = [
+    path("", include("apps.shared.urls")),
     path("", include("apps.order.urls")),
     path("admin/", admin.site.urls),
     re_path(r"static/(?P<path>.*)", serve, {"document_root": settings.STATIC_ROOT}),
